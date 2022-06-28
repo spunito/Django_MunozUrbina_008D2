@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Friends</title>
+
+    <script src="https://kit.fontawesome.com/a98d2ff4b7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" href="{% static 'img/logo.png' %}" class="rounded-circle"/>
+</head>
+<body>
+  <nav id="nav" class="navbar navbar-expand-sm navbar-light ">
+  
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="navbar-brand">
+      <img class="rounded-circle" src="{% static 'img/logo.png' %}" width="60" height="60" alt="">
+    </div>
+   
+    
+    <div class="collapse navbar-collapse" id="opciones">   
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a id="navL" class="nav-link" href="{% url 'index' %}">Principal</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="navL"  href="{% url 'somos' %}">Quienes Somos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="navL"  href="{% url 'galeria'%}">Galeria</a>
+        
+         <li class="nav-item">
+            <a class="nav-link" id="navL"  href="{% url 'contacto' %}">Contacto</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="navL"  href="{% url 'mapa' %}">Encuentranos acá</a>
+        </li>
+        <li class="nav-item">
+            
+          <a href="{% url 'mostrar_clientes' %}" id="navL" class="nav-link" >Registrar datos</a>
+        </li>
+        <li class="nav-item">
+          {% if user.is_authenticated %}
+            <a href="{% url 'mostrar' %}" class="nav-link"  style="color: red;">Mostrar Productos </a>
+          </li>
+          
+            <li class="nav-item">
+            <a href="{% url 'logout' %}"  class="nav-link"  style="color: red; ">Cerrar Sesión</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link" style="color:blue;" >Bienvenid@ {{user.username}}</a>
+          </li>
+          {% else %}
+          <a href="{% url 'login' %}" class="me-4 text-reset">
+            <svg xmlns="http://www.w3.org/2000/svg"  style="margin-top: 5px; "width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+              <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+            </svg>
+          </a>
+          {% endif %}
+        </li>
+         
+          
+          
+      </li>
+      
+                  
+      </ul>
+    </div>
+  </nav>
+  <!--Termina Nav-->
+
+  <div class="container border ">  
+    
+    <div class="row">
+    <div class="card col-md-4 border border-dar" >
+        <img class="card-img-top" id="fotoG" src="{% static 'img/correa1.pg.png' %}">            
+        <div class="card-body"> 
+        <a href=" "><h4 class="card-title">Correa para Perros "Rad" Fuzzyard</h4></a>
+        <hr>
+        <p class="card-text ">Tu amigo de cuatro patas se volverá loco por la correa de perro S
+          ummer Punch. Esta resistente correa para perros de neopreno FuzzYard cuenta con un cómodo lazo 
+          de mano y un cierre de acero 
+          con resorte para sujetarlo de forma segura al collar de su perro.
+          Cómodo en sus manos El cierre gira 360 ° para caminar y correr más fácilmente.</p>
+          <hr>
+          <p style="text-align: right; font-size: 30px; color:rgb(87, 87, 231);">$10.990<p>
+        
+
+        </div>
+    </div>   
+    
+    
+    <div class="card col-md-4 border-dar">
+      <img class="card-img-top" id="fotoG" src="{% static 'img/id.png' %}">            
+      <div class="card-body"> 
+        <a href=""> <h4 class="card-title">Emerid Pets Placa de Identificación</h4></a><hr> 
+      <p class="card-text">Emerid Pets placa identificadora NFC para tu mascota permite a quien encuentre a tu mascota, contactarte via Whatsapp o llamada y acceder a su ficha médica.
+
+        Además, en caso de pérdida de tu mascota recibes su ubicación en tu móvil cuando Emerid Pets es escaneado. Ultraresistente y sin suscripciones.</p> <hr>
+         <p style="text-align: right; font-size: 30px; color:rgb(87, 87, 231);">$12.990<p>
+      </div>
+  </div>   
+  
+  
+  <div class="card col-md-4 border-dar">
+    <img class="card-img-top"  id="fotoG" src="{% static 'img/band.png' %}">            
+    <div class="card-body"> 
+      <a href=""><h4 class="card-title">Bandana para Perros Reversible</h4></a> <hr>
+    <p class="card-text">Tu amigal tiene que ser mimado de vez en cuando ♥ La bandana reversible a mezclilla "Talla Tails" es el accesorio perfecto para mejorar la apariencia de tu perro y lograr el mejor estilo. <br> » Diseño reversible para dar más opciones de outfit. Sólo saca la etiqueta del lado contrario y ¡listo! « </p>
+    <hr>
+     <p style="text-align: right; font-size: 30px; color:rgb(87, 87, 231);">$8.990</p>
+    </div>
+</div>    
+</div>  
+ <hr>
+
+<div class="row">
+    <div class="card col-md-4 border-dar">
+        <img class="card-img-top"  id="fotoG" src="{% static 'img/arnes1.png' %}">
+        <div class="card-body"> 
+          <a href=""> <h4 class="card-title">Arnés para Perros "Rad" Fuzzyard</h4></a>
+        <hr>
+        <p class="card-text">Haz que tu perro camine con un poco de energía en su paso. Los arneses FuzzYard se deslizan fácilmente sobre la cabeza de su perro y se abrochan con una sola correa ajustable para un ajuste seguro sin importar la forma o el tamaño de su perro.</p>
+        <hr>
+        <p style="text-align: right; font-size: 30px; color:rgb(87, 87, 231);">$5.990<p></p>
+        </div>
+    </div>   
+    
+    
+    <div class="card col-md-4 border-dark">
+      <img class="card-img-top" src="{% static 'img/camita.png' %}">            
+      <div class="card-body"> 
+        <a href=""> <h4 class="card-title">Cojín y Cama "Snoozy Friendz" 3D de Gato</h4></a> <hr>
+      <p class="card-text">La línea de cojín y cama “Snoozy Friends” esta especialmente diseñada para que perros y gatos puedan acostarse y acurrucarse en estos suaves y confortables diseños inspirados en distintos animales.
+
+        </p>
+        <hr>
+        <p style="text-align: right; font-size: 30px; color:rgb(87, 87, 231);">$12.990<p></p>
+      </div>
+  </div>      
+  
+  
+  <div class="card col-md-4 border-dark">
+    <img class="card-img-top" src="{% static 'img/plato.png' %}">            
+    <div class="card-body"> 
+      <a href=""> <h4 class="card-title">Bowl de Diseño Acero y Madera Tall Tails</h4></a> <hr>
+    <p class="card-text">¡Porque comer nunca había tenido tanto estilo! Este Bowl es ideal tanto para agua y comida de forma que tu perro pueda comer cómodamente en un plato de acero inoxidable ligeramente elevado gracias al elegante soporte de madera rústica. </p>
+     <hr> 
+    <p style="text-align: right; font-size: 30px; color:rgb(87, 87, 231);">$15.990<p></p>
+    </div>
+</div>    
+</div>
+</div>
+
+
+
+
+
+
+     
+  <!--Empieza footer -->
+  <footer class="text-center">  
+        <div class="container-fluid">   
+          <div class="justify-content-center  ">
+          <p id="nombre" class="me-5" ><br>•Axel Muñoz •Maximiliano Urbina<p>
+          
+              <div id="logo" class="text-center">
+                <a href="" class="me-4 text-reset">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
+            </div>
+        </div>
+          <!-- Copyright -->
+          <div class="text-center p-3" id="copy">©Copyright Derechos reservados</div>
+        </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>      
+</body>
+</html>
